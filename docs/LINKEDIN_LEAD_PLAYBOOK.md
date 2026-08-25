@@ -292,3 +292,5 @@ LinkedIn may have multiple "Miles Bates" profiles. Update the one that matches *
 ---
 
 **Next:** Deploy Vercel demo URL — posts with **live links** get 3× more clicks than GitHub-only.
+
+**No Premium / InMail?** Use `docs/TRACK_RECORD_BUILDER.md` — free Connect notes, posts, comments, email, and a 4-week scorecard.

@@ -3,6 +3,9 @@
 **Your profile:** https://www.linkedin.com/in/miles-bates-843aa0222/  
 **Your location:** ATL, GA (remote)  
 
+**Full free playbook (posts + scorecard + no Premium):** `docs/TRACK_RECORD_BUILDER.md`  
+**Rule:** Use **Connect → Add a note** only. Do not tap Message on non-connections (InMail paywall).
+
 **Important:** Click each profile link **before** connecting to confirm it loads for you. LinkedIn visibility varies by account.
 
 ---
