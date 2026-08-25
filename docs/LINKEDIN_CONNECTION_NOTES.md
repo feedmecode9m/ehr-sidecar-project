@@ -1,104 +1,105 @@
-# 3 Custom LinkedIn Connection Notes — Miles Bates
+# 3 Custom LinkedIn Connection Notes — Miles Bates (VERIFIED PROFILES)
 
 **Your profile:** https://www.linkedin.com/in/miles-bates-843aa0222/  
 **Your location:** ATL, GA (remote)  
-**Limit:** 300 characters per connection note — all notes below fit.
 
-Copy the note **exactly** into LinkedIn → Connect → **Add a note**.
+**Important:** Click each profile link **before** connecting to confirm it loads for you. LinkedIn visibility varies by account.
 
 ---
 
-## 1. Noah Weiner — CEO, Robinhood Health (LA · FQHC partners)
+## Why the last three didn’t work
 
-**Profile:** https://www.linkedin.com/in/nweiner  
-**Why him:** LA virtual medical group, FQHC partners, built Sherwood platform, "no EHR integration" wedge — closest to your sidecar story.
+| Name we used | Issue | Correct profile (if any) |
+|--------------|-------|-------------------------|
+| Noah Weiner `/in/nweiner` | URL may not resolve from search — try company page | Search **Robinhood Health** → People, or skip |
+| Stephen Gutierrez | Wrong slug — not `stephen-gutierrez` | **https://www.linkedin.com/in/stephenbgutierrez** |
+| Jasmine Galindo NEVHC | No public profile under that name at NEVHC | Use NEVHC company page → People, or skip |
+
+---
+
+## NEW SET — 3 verified profiles (click to open)
+
+### 1. Reed Liggin — CEO, SlicedHealth (Atlanta Metro · HealthTech)
+
+**Profile:** https://www.linkedin.com/in/reed-liggin  
+**Company:** SlicedHealth — hospital/physician revenue, AI-driven SaaS, Atlanta area  
+**Why:** **Local to ATL metro**, 30+ yrs healthcare, ex-athenahealth — ideal contract/subcontract lead.
 
 **Connection note:**
 ```
-Hi Noah — ATL, GA-based independent engineer (1099), remote. Robinhood's FQHC model + Sherwood align with my work: clinical sidecar UX beside legacy EHRs, HIPAA-minded APIs. Public demo on GitHub. Would value connecting.
-```
-
-**After he accepts — follow-up DM:**
-```
-Thanks for connecting, Noah. Based in ATL, GA — work remote nationwide. Built an open EHR Sidecar demo (sticky allergies, progressive vitals, noteId-only AI): github.com/feedmecode9m/ehr-sidecar-project
-
-If Sherwood ever needs a focused UI slice or workflow prototype, I do 2–4 week 1099 pilots. Happy to share a 5-min walkthrough if useful.
+Hi Reed — ATL-area independent engineer (1099), remote. SlicedHealth's hospital SaaS work resonates with my clinical sidecar demo (workflow UX + HIPAA-minded APIs). Public portfolio on GitHub. Would value connecting.
 ```
 
 ---
 
-## 2. Stephen Gutierrez — CIO, Northeast Valley Health Corporation (NEVHC)
+### 2. Georgina Dukes-Harris — Founder & CEO, Swishvo (Atlanta · Health Tech)
 
-**Profile:** Search LinkedIn: `Stephen Gutierrez NEVHC` or `Stephen Gutierrez Northeast Valley Health`  
-**Why him:** LA County FQHC, 17 sites, 2025 Healthcare Innovation Award w/ LANES — real buyer for workflow tools.
+**Profile:** https://www.linkedin.com/in/georginadukes  
+**Company:** Swishvo — health tech infrastructure for holistic providers, Atlanta  
+**Why:** ATL founder, Google AI Fellow, building payer/provider rails — likely needs contract eng.
 
 **Connection note:**
 ```
-Hi Stephen — congrats on NEVHC's Innovator Award with LANES. I'm an independent engineer (1099) in ATL, GA (remote) building clinical sidecar tools that reduce EHR click fatigue. Public portfolio demo on GitHub. Would love to connect.
-```
-
-**After he accepts — follow-up DM:**
-```
-Appreciate the connect — Miles from ATL, GA, available remote. I built a sidecar prototype for community health teams: allergies/code status at a glance, progressive vitals, secure AI (noteId only).
-
-Demo: github.com/feedmecode9m/ehr-sidecar-project
-
-If NEVHC pilots workflow UI beside your EHR stack, I do fixed-scope 1099 work. Open to a brief call if helpful.
+Hi Georgina — fellow ATL health tech builder here. Independent engineer (1099) focused on secure, usable clinical/fintech UX. Shipped an open EHR Sidecar demo (GitHub). Would love to connect re: Swishvo's stack.
 ```
 
 ---
 
-## 3. Jasmine Galindo, MPH — Director of Quality, Health Equity & Innovation, NEVHC
+### 3. Jeffery L. — Co-Founder & Co-CEO, Assort Health (Health AI · hiring eng)
 
-**Profile:** Search LinkedIn: `Jasmine Galindo NEVHC`  
-**Why her:** Innovation + quality + health equity — she owns the "make care delivery better" mandate, not just IT.
+**Profile:** https://www.linkedin.com/in/jefferyliu300  
+**Company:** Assort Health — AI agents for patient access, $100M+ raised  
+**Why:** Verified profile, actively scaling eng — subcontract or sprint work on clinical UI.
 
 **Connection note:**
 ```
-Hi Jasmine — your NEVHC/LANES innovation work is exactly what I build for: less click fatigue, safety context visible fast. Independent engineer (1099), ATL, GA · remote. Portfolio demo on GitHub. Happy to connect.
-```
-
-**After she accepts — follow-up DM:**
-```
-Thanks Jasmine. ATL, GA-based, remote — I focus on clinical UX for FQHCs: semantic allergy badges, tablet-friendly vitals, context-aware orders. Synthetic demo data; production-minded architecture.
-
-Link: github.com/feedmecode9m/ehr-sidecar-project
-
-If a 2-week workflow prototype helps your innovation roadmap, I'm available 1099 contract. Happy to share a quick walkthrough.
+Hi Jeffery — ATL, GA-based independent engineer (1099), remote. Assort's patient-journey AI aligns with my work: clinical sidecar UX, HIPAA-minded APIs (noteId-only pattern). Demo on GitHub. Happy to connect.
 ```
 
 ---
 
-## Bonus — Quaility (if you find their founder on company page)
+## Alternates if any of the above don’t load
 
-**Company:** Search LinkedIn: `Quaility` — LA FQHC, eClinicalWorks layer
+| Person | Profile | Location |
+|--------|---------|----------|
+| Ali R. Rahimi, MD — ALYKA Health CEO | https://www.linkedin.com/in/ali-r-rahimi-md-mph-8b188591 | Atlanta |
+| Jon Wang — Assort Health co-CEO | https://www.linkedin.com/in/jonxwang | SF (remote OK) |
+| Stephen Gutierrez — NEVHC CIO | https://www.linkedin.com/in/stephenbgutierrez | LA (remote OK) |
+| Ibrahim Mohammad — Titra Health co-founder | https://linkedin.com/in/ibrahim-mohammad7862 | Atlanta |
 
-**Connection note:**
+**Connection note template (alternate):**
 ```
-Hi [Name] — Quaility's LA FQHC work (eClinicalWorks, measured outcomes) is my contract focus: sidecar UX + HIPAA-minded APIs. Independent engineer (1099), ATL, GA · remote. GitHub demo available. Would value connecting.
+Hi [Name] — independent software engineer (1099), ATL, GA · remote. Building HIPAA-minded clinical workflow tools; portfolio demo on GitHub. Would value connecting re: [Company].
 ```
 
 ---
 
-## Your profile — quick fixes before you send these
+## How to find leads when names fail
 
-**Headline:**
-```
-Independent Software Engineer (1099) · HealthTech & Clinical UX · EHR Sidecar · ATL, GA · Remote
-```
-
-**Location on LinkedIn:** Atlanta, Georgia (or Atlanta Metropolitan Area)
-
-**Featured:** Pin https://github.com/feedmecode9m/ehr-sidecar-project
+1. **Company page → People** (e.g. search `SlicedHealth` on LinkedIn → company → People)  
+2. **2nd-degree filters:** Your connections → search "health tech" + Atlanta  
+3. **Posts:** Search `#HealthTech` + comment on posts → connect with poster  
+4. **NEVHC:** https://www.linkedin.com/company/nevhc → People tab  
 
 ---
 
-## Order to send (this week)
+## After they accept — follow-up DM
 
-| Day | Send note to |
-|-----|----------------|
-| **Today** | Noah Weiner |
-| **Tomorrow** | Stephen Gutierrez |
-| **Day 3** | Jasmine Galindo |
+```
+Thanks for connecting — Miles from ATL, GA (remote).
 
-Do **not** send all three the same hour — LinkedIn may throttle.
+EHR Sidecar demo (clinical UX + secure AI, synthetic data):
+github.com/feedmecode9m/ehr-sidecar-project
+
+I do 2–4 week 1099 pilots — workflow UI, API hardening, HIPAA-minded patterns. Happy to share a 5-min walkthrough if useful for [Company].
+```
+
+---
+
+## Send order
+
+| Day | Profile | URL |
+|-----|---------|-----|
+| **Today** | Reed Liggin | linkedin.com/in/reed-liggin |
+| **Tomorrow** | Georgina Dukes-Harris | linkedin.com/in/georginadukes |
+| **Day 3** | Jeffery L. | linkedin.com/in/jefferyliu300 |
