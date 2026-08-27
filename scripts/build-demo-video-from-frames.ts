@@ -11,6 +11,7 @@ import {
   readdirSync,
   writeFileSync,
   unlinkSync,
+  copyFileSync,
 } from "node:fs";
 import { join } from "node:path";
 
@@ -233,7 +234,6 @@ function main() {
     "EHR-Sidecar-Clinical-Walkthrough.mp4",
   );
   try {
-    const { copyFileSync } = await import("node:fs");
     copyFileSync(VIDEO_PATH, downloads);
     console.log(`Also copied to:\n   ${downloads}\n`);
   } catch {
