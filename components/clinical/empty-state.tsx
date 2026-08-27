@@ -23,19 +23,19 @@ export function EmptyState({
   return (
     <div
       className={cn(
-        "flex flex-col items-center rounded-lg border border-dashed border-border bg-white px-4 py-8 text-center",
+        "flex flex-col items-center rounded-lg border border-dashed border-border bg-card px-4 py-8 text-center",
         className,
       )}
       role="status"
     >
       <div
-        className="mb-3 flex size-12 items-center justify-center rounded-full bg-slate-100"
+        className="mb-3 flex size-12 items-center justify-center rounded-full bg-muted"
         aria-hidden="true"
       >
-        <Icon className="size-6 text-slate-500" />
+        <Icon className="size-6 text-muted-foreground" />
       </div>
       <h3 className="text-sm font-semibold text-foreground">{title}</h3>
-      <p className="mt-1 max-w-xs text-sm leading-relaxed text-slate-500">
+      <p className="mt-1 max-w-xs text-sm leading-relaxed text-muted-foreground">
         {description}
       </p>
       {actionLabel && onAction && (

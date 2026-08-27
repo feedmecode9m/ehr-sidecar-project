@@ -118,7 +118,7 @@ export function ProgressiveVitals({
   }
 
   return (
-    <Card className="bg-white shadow-sm">
+    <Card className="shrink-0 bg-card shadow-sm">
       <CardHeader className="flex flex-row items-start justify-between gap-2 space-y-0 pb-3">
         <CardTitle className="text-base font-semibold">Vitals</CardTitle>
         <Button

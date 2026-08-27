@@ -1,10 +1,12 @@
 # LinkedIn Post #1 — ready to paste
 
+Tone: collaborative, problem-first — prefer “we / this demo / our approach” over “I built.”
+
 ## Steps
 1. Open LinkedIn → Start a post
-2. Attach image: `docs/linkedin/post-1-ehr-sidecar.png`  
-   (also copied to Downloads as `LinkedIn-Post1-EHR-Sidecar.png`)
-3. Paste everything from `post-1.txt` below
+2. Attach image: `docs/screenshots/critical-care-banner.png`  
+   (or `docs/linkedin/post-1-ehr-sidecar.png` if you prefer the earlier crop)
+3. Paste everything from `post-1.txt`
 4. Publish
 5. Comment on your own post:
 
@@ -18,7 +20,7 @@ Physicians don't need another dashboard.
 
 They need allergies and code status without 4 clicks into the EHR.
 
-I built a proof: an EHR *sidecar* — sticky safety header, progressive vitals, context-aware orders.
+This open-source demo showcases an EHR *sidecar* — sticky safety header, progressive vitals, context-aware orders, and Critical Care Notes when AI output flags high-risk language.
 
 HIPAA-minded AI pattern: browser sends noteId only. Server does the rest. Synthetic patients only.
 

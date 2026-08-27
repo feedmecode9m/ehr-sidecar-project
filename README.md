@@ -13,11 +13,32 @@
 
 ## Live Preview
 
-Eleanor Vance (`/?patient=p1`) — sticky safety header, progressive vitals, CHF order set, and AI clinical summary:
+Eleanor Vance (`/?patient=p1`) — sticky safety header, progressive vitals, CHF order set, and AI clinical summary with Critical Care Notes:
 
-![EHR Sidecar demo — Eleanor Vance CHF patient view showing allergy badges, vitals, CHF Exacerbation Panel, and AI Clinical Summary](./docs/screenshots/ehr-sidecar-demo.png)
+![EHR Sidecar demo — Eleanor Vance CHF patient view with Critical Care Notes banner](./docs/screenshots/critical-care-banner.png)
 
-*Screenshot: Sidecar panel with red allergy badges (Penicillin, Latex), vitals row, CHF Exacerbation Panel, and generated AI summary.*
+*Screenshot: Sidecar panel with allergy badges, Full Code status, AI summary, and a red Critical Care Notes banner elevating anaphylaxis / allergy safety alerts.*
+
+---
+
+## 📸 Visual Walkthrough
+
+Drop additional screenshots into `docs/screenshots/` using the filenames below (create any that are still missing). Paths are relative to the repo root.
+
+![Critical Care Notes Banner](docs/screenshots/critical-care-banner.png)
+
+![Progressive Vitals & Smart Orders](docs/screenshots/vitals-and-orders.png)
+
+![Two-Column Sidecar Layout](docs/screenshots/sidecar-layout.png)
+
+| Filename | Suggested capture |
+|----------|-------------------|
+| `docs/screenshots/critical-care-banner.png` | p1 — AI summary with red **Critical Care Notes** banner (**included**) |
+| `docs/screenshots/vitals-and-orders.png` | p1 — vitals row + CHF Exacerbation Panel |
+| `docs/screenshots/sidecar-layout.png` | Desktop — legacy EHR placeholder + sidecar side-by-side |
+| `docs/screenshots/ehr-sidecar-demo.png` | Earlier full-panel capture (optional archive) |
+
+Verbal demo script: [`docs/walkthrough-script.md`](docs/walkthrough-script.md)
 
 ---
 
@@ -31,7 +52,7 @@ The core issue isn't missing data — it's **cognitive and click load**. Critica
 
 ## The Solution
 
-This project demonstrates a **clinical sidecar panel** — a focused UI that augments (not replaces) legacy EHRs. It lives beside the main chart and surfaces high-value workflow actions in **≤ 2 clicks**.
+We designed this sidecar concept to augment, not replace, legacy systems. This project demonstrates a focused clinical panel that lives beside the main chart and surfaces high-value workflow actions in **≤ 2 clicks**.
 
 ### Three Workflow Optimizations
 
@@ -40,6 +61,8 @@ This project demonstrates a **clinical sidecar panel** — a focused UI that aug
 | **Safety at a glance** | Allergies + code status in sticky header | 0 clicks |
 | **Context-aware ordering** | Smart order sets matched to diagnosis/vitals | 1–2 clicks |
 | **Progressive vitals review** | Latest vitals summary → expand for 48h trends | 1 click |
+
+Our approach also elevates **AI safety triage**: when a note summary contains high-risk language (e.g. anaphylaxis, DNR, sepsis), a **Critical Care Notes** banner surfaces those alerts before the caregiver reads the full text.
 
 ---
 
@@ -101,12 +124,15 @@ flowchart TB
 - **High contrast** for bright hospital environments
 - **WCAG 2.1 AA** — icon + text labels (color never the sole indicator)
 - **Keyboard navigation** — focus rings, `aria-expanded`, labeled controls
+- **AI safety layer** — keyword scan elevates anaphylaxis / DNR / sepsis-class alerts
 
 ---
 
 ## Security & HIPAA-Minded Architecture
 
-This is a **portfolio demo with synthetic data**, built using production-grade patterns:
+This is a **portfolio demo with synthetic data**, built using production-grade patterns.
+
+We implemented a secure pattern where the browser never posts raw note text to the model layer:
 
 | Rule | Implementation |
 |------|----------------|
@@ -115,18 +141,21 @@ This is a **portfolio demo with synthetic data**, built using production-grade p
 | No PHI logging | Zero `console.log` of patient data (verified) |
 | Input validation | Zod schema on `/api/summarize` |
 | Shareable state | Patient context via `?patient=ID` URL param (not localStorage) |
+| Critical Care Notes | Client-side keyword elevation on **already-summarized** display fields only |
 
 ---
 
 ## Demo Script (60 seconds)
+
+See the full verbal script: [`docs/walkthrough-script.md`](docs/walkthrough-script.md)
 
 ### Step 1 — Eleanor Vance (CHF)
 Open **[/?patient=p1](http://localhost:3000/?patient=p1)**
 
 1. **Header:** Red Penicillin + Latex allergy badges, green Full Code
 2. **Vitals:** Latest BP/HR/SpO₂ with semantic status dots → click **Expand trends** for 48h Recharts
-3. **Orders:** CHF Exacerbation Panel → expand to 6 orders → select + **Add Selected Orders**
-4. **AI:** Click **Generate AI Summary** → skeleton (~800ms) → structured summary card
+3. **Orders:** CHF Exacerbation Panel → select orders → **Add Selected Orders**
+4. **AI:** Click **Generate AI Summary** → skeleton (~800ms) → **Critical Care Notes** banner + structured summary
 
 ### Step 2 — Marcus Thorne (Sepsis)
 Open **[/?patient=p2](http://localhost:3000/?patient=p2)**
@@ -134,14 +163,14 @@ Open **[/?patient=p2](http://localhost:3000/?patient=p2)**
 1. **Header:** Green NKDA badge, red DNR
 2. **Vitals:** Expand trends — critical hypotension + tachycardia pattern
 3. **Orders:** Sepsis Workup with STAT priorities
-4. **AI:** ICU/sepsis-focused summary
+4. **AI:** ICU/sepsis-focused summary with critical keyword elevation
 
 ### Step 3 — Jane Doe (Minimal chart)
 Open **[/?patient=p4](http://localhost:3000/?patient=p4)**
 
 1. **Vitals:** Limited data points
 2. **AI:** Empty state — "No clinical note available"
-3. Demonstrates graceful degradation
+3. Demonstrates graceful degradation (no Critical Care Notes banner)
 
 ---
 
@@ -182,7 +211,12 @@ lib/fhir/
   mock/                    # Synthetic patient data (server-safe)
   get-patient-context.ts   # Server-only aggregator
   summarize-note.ts        # Rule-based mock summarizer
+lib/utils/
+  extract-critical-alerts.ts  # Critical Care Notes keyword elevation
 .cursor/rules/             # Persona rules (PM, UX, FE, Security)
+docs/
+  walkthrough-script.md    # 60-second interview / demo script
+  screenshots/             # Visual walkthrough assets
 ```
 
 ---
@@ -201,7 +235,7 @@ lib/fhir/
 
 | Patient | URL | Scenario |
 |---------|-----|----------|
-| Eleanor Vance | `/?patient=p1` | CHF + severe allergies + order set + AI summary (**[see above](#live-preview)**) |
+| Eleanor Vance | `/?patient=p1` | CHF + severe allergies + order set + Critical Care Notes (**[see Visual Walkthrough](#-visual-walkthrough)**) |
 | Marcus Thorne | `/?patient=p2` | Sepsis + DNR + critical vitals |
 | Leo Rossi | `/?patient=p3` | Pediatric asthma + peanut allergy |
 | Jane Doe | `/?patient=p4` | Minimal chart + empty states |

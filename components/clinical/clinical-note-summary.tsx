@@ -1,7 +1,7 @@
 "use client";
 
-import { Sparkles } from "lucide-react";
-import { useState } from "react";
+import { AlertTriangle, Sparkles } from "lucide-react";
+import { useMemo, useState, type ReactNode } from "react";
 
 import { EmptyState } from "@/components/clinical/empty-state";
 
@@ -15,6 +15,10 @@ import {
 } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { ClinicalSummary } from "@/lib/fhir/summarize-note";
+import {
+  extractCriticalAlerts,
+  segmentCriticalKeywords,
+} from "@/lib/utils/extract-critical-alerts";
 
 interface ClinicalNoteSummaryProps {
   noteId: string;
@@ -27,11 +31,37 @@ type SummaryState =
   | { status: "success"; data: ClinicalSummary }
   | { status: "error" };
 
+function highlightKeywords(text: string): ReactNode {
+  const segments = segmentCriticalKeywords(text);
+
+  return segments.map((segment, index) =>
+    segment.highlight ? (
+      <span
+        key={`${segment.text}-${index}`}
+        className="font-bold text-clinical-critical"
+      >
+        {segment.text}
+      </span>
+    ) : (
+      <span key={`${segment.text}-${index}`}>{segment.text}</span>
+    ),
+  );
+}
+
 export function ClinicalNoteSummary({
   noteId,
   hasNote,
 }: ClinicalNoteSummaryProps) {
   const [state, setState] = useState<SummaryState>({ status: "idle" });
+
+  const criticalAlerts = useMemo(() => {
+    if (state.status !== "success") return [];
+    return extractCriticalAlerts(
+      state.data.summary,
+      state.data.keyFindings,
+      state.data.actionItems,
+    );
+  }, [state]);
 
   async function generateSummary() {
     setState({ status: "loading" });
@@ -66,7 +96,7 @@ export function ClinicalNoteSummary({
   }
 
   return (
-    <Card>
+    <Card className="shrink-0">
       <CardHeader className="pb-3">
         <CardTitle className="text-base font-semibold">
           AI Clinical Summary
@@ -89,7 +119,11 @@ export function ClinicalNoteSummary({
         )}
 
         {state.status === "loading" && (
-          <div className="space-y-3" aria-busy="true" aria-label="Generating summary">
+          <div
+            className="space-y-3"
+            aria-busy="true"
+            aria-label="Generating summary"
+          >
             <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-5/6" />
             <Skeleton className="h-4 w-4/6" />
@@ -118,12 +152,35 @@ export function ClinicalNoteSummary({
 
         {state.status === "success" && (
           <div className="space-y-4 rounded-lg border border-border bg-muted/30 p-4">
+            {criticalAlerts.length > 0 && (
+              <div
+                className="rounded-md border border-clinical-critical/40 bg-clinical-critical px-3 py-3 text-white shadow-sm"
+                role="alert"
+                aria-label="Critical care notes"
+              >
+                <div className="flex items-center gap-2">
+                  <AlertTriangle
+                    className="size-5 shrink-0"
+                    aria-hidden="true"
+                  />
+                  <h3 className="text-sm font-bold uppercase tracking-wide">
+                    Critical Care Notes
+                  </h3>
+                </div>
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm font-medium leading-snug">
+                  {criticalAlerts.map((alert) => (
+                    <li key={alert}>{alert}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             <div>
               <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 Summary
               </h3>
               <p className="mt-1 text-sm leading-relaxed text-foreground">
-                {state.data.summary}
+                {highlightKeywords(state.data.summary)}
               </p>
             </div>
 
@@ -133,7 +190,7 @@ export function ClinicalNoteSummary({
               </h3>
               <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-foreground">
                 {state.data.keyFindings.map((finding) => (
-                  <li key={finding}>{finding}</li>
+                  <li key={finding}>{highlightKeywords(finding)}</li>
                 ))}
               </ul>
             </div>
@@ -144,7 +201,7 @@ export function ClinicalNoteSummary({
               </h3>
               <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-foreground">
                 {state.data.actionItems.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>{highlightKeywords(item)}</li>
                 ))}
               </ul>
             </div>

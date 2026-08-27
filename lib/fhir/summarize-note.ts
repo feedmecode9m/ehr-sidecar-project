@@ -57,7 +57,7 @@ export function summarizeClinicalNote(note: ClinicalNote): ClinicalSummary {
         "Worsening dyspnea and weight gain over 3 days",
         "Bibasilar crackles and 2+ pitting edema on exam",
         "History of reduced diuretic compliance reported",
-        "Penicillin anaphylaxis and severe latex allergy documented",
+        "Penicillin anaphylaxis and severe latex allergy documented — critical safety alert",
         ...extractAssessmentLines(text).slice(0, 1),
       ].slice(0, 4),
       actionItems: [

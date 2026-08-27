@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -19,8 +19,6 @@ import type { OrderPriority, OrderSet, OrderSetItem } from "@/lib/fhir/types";
 interface SmartOrderSetProps {
   orderSet: OrderSet;
 }
-
-const INITIAL_VISIBLE_COUNT = 3;
 
 function priorityBadgeClass(priority: OrderPriority): string {
   switch (priority) {
@@ -47,7 +45,7 @@ function OrderRow({
   onCheckedChange: (checked: boolean) => void;
 }) {
   return (
-    <label className="flex min-h-11 cursor-pointer gap-3 rounded-md border border-border bg-background px-3 py-3 hover:bg-muted/40 has-focus-visible:ring-2 has-focus-visible:ring-ring">
+    <label className="flex min-h-11 cursor-pointer gap-3 rounded-md border border-border bg-background/60 px-3 py-3 hover:bg-muted/50 has-focus-visible:ring-2 has-focus-visible:ring-ring">
       <Checkbox
         checked={checked}
         onCheckedChange={(value) => onCheckedChange(value === true)}
@@ -72,19 +70,8 @@ function OrderRow({
 }
 
 export function SmartOrderSet({ orderSet }: SmartOrderSetProps) {
-  const [showAll, setShowAll] = useState(false);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
-
-  const visibleOrders = useMemo(
-    () =>
-      showAll
-        ? orderSet.orders
-        : orderSet.orders.slice(0, INITIAL_VISIBLE_COUNT),
-    [orderSet.orders, showAll],
-  );
-
-  const hiddenCount = orderSet.orders.length - INITIAL_VISIBLE_COUNT;
 
   function toggleOrder(orderId: string, checked: boolean) {
     setSelectedIds((prev) => {
@@ -111,7 +98,7 @@ export function SmartOrderSet({ orderSet }: SmartOrderSetProps) {
   }
 
   return (
-    <Card className="bg-white shadow-sm">
+    <Card className="shrink-0 overflow-visible bg-card shadow-sm">
       <CardHeader className="pb-3">
         <CardTitle className="text-base font-semibold leading-snug">
           {orderSet.name}
@@ -119,11 +106,18 @@ export function SmartOrderSet({ orderSet }: SmartOrderSetProps) {
         <CardDescription className="leading-relaxed">
           Based on: {orderSet.indication}
         </CardDescription>
+        <p className="pt-1 text-xs text-muted-foreground">
+          {orderSet.orders.length} orders — scroll the sidecar to review all
+        </p>
       </CardHeader>
 
-      <CardContent className="space-y-2">
-        <div role="list" aria-label={`${orderSet.name} orders`} className="space-y-2">
-          {visibleOrders.map((item) => (
+      <CardContent className="space-y-2 pb-2">
+        <div
+          role="list"
+          aria-label={`${orderSet.name} orders`}
+          className="space-y-2"
+        >
+          {orderSet.orders.map((item) => (
             <OrderRow
               key={item.id}
               item={item}
@@ -132,27 +126,6 @@ export function SmartOrderSet({ orderSet }: SmartOrderSetProps) {
             />
           ))}
         </div>
-
-        {hiddenCount > 0 && (
-          <Button
-            type="button"
-            variant="outline"
-            className="min-h-11 w-full"
-            onClick={() => setShowAll((prev) => !prev)}
-            aria-expanded={showAll}
-            aria-controls="order-set-full-list"
-          >
-            {showAll
-              ? "Show fewer orders"
-              : `Show all (${orderSet.orders.length}) orders`}
-          </Button>
-        )}
-
-        {showAll && hiddenCount > 0 && (
-          <p id="order-set-full-list" className="sr-only">
-            Showing all {orderSet.orders.length} orders in this set.
-          </p>
-        )}
 
         {successMessage && (
           <p
@@ -170,13 +143,14 @@ export function SmartOrderSet({ orderSet }: SmartOrderSetProps) {
         )}
       </CardContent>
 
-      <CardFooter className="border-t bg-card pt-4">
+      <CardFooter>
         <Button
           type="button"
           className="min-h-11 w-full"
           onClick={handleAddSelected}
         >
           Add Selected Orders
+          {selectedIds.size > 0 ? ` (${selectedIds.size})` : ""}
         </Button>
       </CardFooter>
     </Card>
