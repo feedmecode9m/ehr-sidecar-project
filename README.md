@@ -40,6 +40,16 @@ Drop additional screenshots into `docs/screenshots/` using the filenames below (
 
 Verbal demo script: [`docs/walkthrough-script.md`](docs/walkthrough-script.md)
 
+### Clinical walkthrough video (~42s)
+
+A captioned bedside demo of how medical users would use the sidecar:
+
+**[▶ Watch / download the walkthrough](docs/demo/ehr-sidecar-clinical-walkthrough.mp4)** · details in [`docs/demo/README.md`](docs/demo/README.md)
+
+```bash
+npm run demo:walkthrough   # regenerate (requires npm run dev)
+```
+
 ---
 
 ## The Clinical Problem

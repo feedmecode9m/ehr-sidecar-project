@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "demo:record": "tsx scripts/record-clinical-demo.ts",
+    "demo:video": "tsx scripts/build-demo-video-from-frames.ts",
+    "demo:walkthrough": "tsx scripts/record-clinical-demo.ts && tsx scripts/build-demo-video-from-frames.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
@@ -24,13 +27,16 @@
     "zustand": "^5.0.15"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.3",
+    "playwright": "^1.62.1",
     "tailwindcss": "^4",
+    "tsx": "^4.23.12",
     "typescript": "^5"
   }
 }

@@ -40,3 +40,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# demo video intermediates (keep final MP4 + frames)
+docs/demo/_scene_clips/
+docs/demo/_*.mp4
+docs/demo/*.webm
+docs/demo/_concat.txt
