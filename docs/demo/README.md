@@ -3,15 +3,15 @@
 ## README inline GIF (screencast)
 
 **File:** [`ehr-sidecar-screencast.gif`](./ehr-sidecar-screencast.gif)  
-**Length:** ~35 seconds · 960×600 · 10 fps · ~3.1 MB  
+**Length:** ~12 seconds · 800px wide · 10 fps  
 
-GitHub renders this as an inline GIF in the root [`README.md`](../../README.md). The source screencast WebM (~8 MB) is too large for GitHub’s file viewer, so it is not committed under `docs/demo/` (also matched by `.gitignore` for `*.webm`).
+Short clip of AI summary → **Critical Care Notes** for the root [`README.md`](../../README.md) Live Preview. Source WebM is not committed (`docs/demo/*.webm` is gitignored).
 
-Regenerate from a local WebM (example path):
+Regenerate (trim window `18s` for `12s`):
 
 ```bash
-ffmpeg -y -i "/path/to/screencast.webm" -filter_complex "\
-  [0:v]fps=10,scale=960:-1:flags=lanczos,split[s0][s1];\
+ffmpeg -y -ss 18 -t 12 -i "/path/to/screencast.webm" -filter_complex "\
+  [0:v]fps=10,scale=800:-1:flags=lanczos,split[s0][s1];\
   [s0]palettegen=stats_mode=diff[p];\
   [s1][p]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle\
 " -loop 0 docs/demo/ehr-sidecar-screencast.gif

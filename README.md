@@ -13,15 +13,9 @@
 
 ## Live Preview
 
-~35s screencast of the sidecar in use (safety header → vitals → CHF orders → AI / Critical Care Notes). GitHub renders this as an inline GIF (the original ~8 MB WebM was too large for GitHub’s file viewer):
+Eleanor Vance (`/?patient=p1`) — sticky safety header, progressive vitals, CHF orders, then AI summary with **Critical Care Notes** (~12s GIF):
 
-![EHR Sidecar screencast — bedside walkthrough of safety header, vitals, orders, and AI summary](./docs/demo/ehr-sidecar-screencast.gif)
-
-Eleanor Vance (`/?patient=p1`) — sticky safety header, progressive vitals, CHF order set, and AI clinical summary with Critical Care Notes:
-
-![EHR Sidecar demo — Eleanor Vance CHF patient view with Critical Care Notes banner](./docs/screenshots/critical-care-banner.png)
-
-*Screenshot: Sidecar panel with allergy badges, Full Code status, AI summary, and a red Critical Care Notes banner elevating anaphylaxis / allergy safety alerts.*
+![EHR Sidecar demo — Critical Care Notes and AI summary walkthrough](./docs/demo/ehr-sidecar-screencast.gif)
 
 ---
 
@@ -44,13 +38,9 @@ Drop additional screenshots into `docs/screenshots/` using the filenames below (
 
 Verbal demo script: [`docs/walkthrough-script.md`](docs/walkthrough-script.md)
 
-### Clinical walkthrough (~35s)
+### Clinical walkthrough video (~42s)
 
-Bedside demo of the sidecar (safety header → vitals → orders → AI / Critical Care Notes). Plays inline on GitHub:
-
-![EHR Sidecar clinical walkthrough GIF](docs/demo/ehr-sidecar-screencast.gif)
-
-Optional captioned MP4 download: [ehr-sidecar-clinical-walkthrough.mp4](docs/demo/ehr-sidecar-clinical-walkthrough.mp4) · [demo notes](docs/demo/README.md)
+Captioned MP4 (download): [ehr-sidecar-clinical-walkthrough.mp4](docs/demo/ehr-sidecar-clinical-walkthrough.mp4) · [demo notes](docs/demo/README.md)
 
 ```bash
 npm run demo:walkthrough   # regenerate captioned MP4 (requires npm run dev)
