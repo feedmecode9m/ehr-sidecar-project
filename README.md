@@ -44,13 +44,13 @@ Drop additional screenshots into `docs/screenshots/` using the filenames below (
 
 Verbal demo script: [`docs/walkthrough-script.md`](docs/walkthrough-script.md)
 
-### Clinical walkthrough video (~42s)
+### Clinical walkthrough (~35s)
 
-A captioned bedside demo of how medical users would use the sidecar:
+Bedside demo of the sidecar (safety header → vitals → orders → AI / Critical Care Notes). Plays inline on GitHub:
 
-**[▶ Watch / download the walkthrough](docs/demo/ehr-sidecar-clinical-walkthrough.mp4)** · details in [`docs/demo/README.md`](docs/demo/README.md)
+![EHR Sidecar clinical walkthrough GIF](docs/demo/ehr-sidecar-screencast.gif)
 
-Inline GIF preview (same session as the Live Preview above): [`docs/demo/ehr-sidecar-screencast.gif`](docs/demo/ehr-sidecar-screencast.gif)
+Optional captioned MP4 download: [ehr-sidecar-clinical-walkthrough.mp4](docs/demo/ehr-sidecar-clinical-walkthrough.mp4) · [demo notes](docs/demo/README.md)
 
 ```bash
 npm run demo:walkthrough   # regenerate captioned MP4 (requires npm run dev)
