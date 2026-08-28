@@ -13,6 +13,10 @@
 
 ## Live Preview
 
+~35s screencast of the sidecar in use (safety header → vitals → CHF orders → AI / Critical Care Notes). GitHub renders this as an inline GIF (the original ~8 MB WebM was too large for GitHub’s file viewer):
+
+![EHR Sidecar screencast — bedside walkthrough of safety header, vitals, orders, and AI summary](./docs/demo/ehr-sidecar-screencast.gif)
+
 Eleanor Vance (`/?patient=p1`) — sticky safety header, progressive vitals, CHF order set, and AI clinical summary with Critical Care Notes:
 
 ![EHR Sidecar demo — Eleanor Vance CHF patient view with Critical Care Notes banner](./docs/screenshots/critical-care-banner.png)
@@ -46,8 +50,10 @@ A captioned bedside demo of how medical users would use the sidecar:
 
 **[▶ Watch / download the walkthrough](docs/demo/ehr-sidecar-clinical-walkthrough.mp4)** · details in [`docs/demo/README.md`](docs/demo/README.md)
 
+Inline GIF preview (same session as the Live Preview above): [`docs/demo/ehr-sidecar-screencast.gif`](docs/demo/ehr-sidecar-screencast.gif)
+
 ```bash
-npm run demo:walkthrough   # regenerate (requires npm run dev)
+npm run demo:walkthrough   # regenerate captioned MP4 (requires npm run dev)
 ```
 
 ---
@@ -227,6 +233,7 @@ lib/utils/
 docs/
   walkthrough-script.md    # 60-second interview / demo script
   screenshots/             # Visual walkthrough assets
+  demo/                    # Inline GIF + captioned walkthrough MP4
 ```
 
 ---
